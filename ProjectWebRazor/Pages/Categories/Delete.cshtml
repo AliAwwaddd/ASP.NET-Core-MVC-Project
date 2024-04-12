@@ -1,0 +1,42 @@
+﻿@page
+@model ProjectWebRazor.Pages.Categories.DeleteModel
+
+<form method="post">
+    <input asp-for="Category.Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete Category</h2>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="ModelOnly"></div> this is a server side validation*@
+        <div class="mb-3 row p-1">
+            <label asp-for="Category.Name" class="p-0"></label>
+            <input asp-for="Category.Name" disabled type="text" class="form-control" /> @*Type='text' is not necessary here*@
+            <span asp-validation-for="Category.Name" class="text-danger"></span> @*this is a server side validation*@
+        </div>
+        <div class="mb-3 row">
+            <label asp-for="Category.DisplayOrder" class="p-0"></label>
+            <input asp-for="Category.DisplayOrder" disabled class="form-control" />
+            <span asp-validation-for="Category.DisplayOrder" class="text-danger"></span> @*this is a server side validation*@
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button asp-for="" type="submit" class="btn btn-primary form-control">Delete</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-page="/Categories/index" class="btn btn-outline-secondary form-control">
+                    Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
